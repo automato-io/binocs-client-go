@@ -34,17 +34,19 @@ type Check struct {
 	Channels                   []string `json:"channels,omitempty"`
 }
 
-func (s *CheckService) Create(c Check) error {
+func (s *CheckService) Create(c Check) (Check, error) {
+	var result Check
 	resp, err := s.resty.R().
 		SetBody(c).
+		SetResult(&result).
 		Post("/checks")
 	if err != nil {
-		return err
+		return result, err
 	}
 	if resp.StatusCode() != http.StatusCreated {
-		return fmt.Errorf("API returned %d", resp.StatusCode())
+		return result, fmt.Errorf("API returned %d", resp.StatusCode())
 	}
-	return nil
+	return result, nil
 }
 
 func (s *CheckService) Read(ident string) (Check, error) {
