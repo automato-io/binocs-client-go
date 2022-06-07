@@ -14,7 +14,7 @@ type CheckService struct {
 type Check struct {
 	ID                         int      `json:"id,omitempty"`
 	Ident                      string   `json:"ident,omitempty"`
-	Name                       string   `json:"name,omitempty"`
+	Name                       string   `json:"name"`
 	Protocol                   string   `json:"protocol,omitempty"`
 	Resource                   string   `json:"resource,omitempty"`
 	Method                     string   `json:"method,omitempty"`
