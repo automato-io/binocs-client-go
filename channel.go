@@ -103,7 +103,7 @@ func (s *ChannelService) Attach(channel string, check string) error {
 	if err != nil {
 		return err
 	}
-	if resp.StatusCode() != http.StatusCreated {
+	if resp.StatusCode() != http.StatusOK {
 		return fmt.Errorf("API returned %d", resp.StatusCode())
 	}
 	return nil
@@ -117,7 +117,7 @@ func (s *ChannelService) Detach(channel string, check string) error {
 	if err != nil {
 		return err
 	}
-	if resp.StatusCode() != http.StatusCreated {
+	if resp.StatusCode() != http.StatusOK {
 		return fmt.Errorf("API returned %d", resp.StatusCode())
 	}
 	return nil

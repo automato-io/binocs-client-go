@@ -9,7 +9,7 @@ import (
 
 const BaseURL = "https://api.binocs.sh"
 const UserAgent = "BinocsClientGo"
-const Version = "v0.1.2"
+const Version = "v0.1.3"
 
 type Client struct {
 	Checks   CheckService
