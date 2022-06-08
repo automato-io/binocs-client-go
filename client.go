@@ -12,8 +12,8 @@ const UserAgent = "BinocsClientGo"
 const Version = "v0.1.0"
 
 type Client struct {
-	Checks  CheckService
-	Channel ChannelService
+	Checks   CheckService
+	Channels ChannelService
 }
 
 type ClientConfig struct {
@@ -24,8 +24,8 @@ type ClientConfig struct {
 func New(config ClientConfig) (*Client, error) {
 	r := resty.New()
 	c := &Client{
-		Checks:  CheckService{resty: r},
-		Channel: ChannelService{resty: r},
+		Checks:   CheckService{resty: r},
+		Channels: ChannelService{resty: r},
 	}
 	r.SetBaseURL(BaseURL)
 	r.SetHeader("Content-Type", "application/json")
